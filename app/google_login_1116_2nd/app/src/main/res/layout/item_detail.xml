@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!-- 사진 상세페이지에서 사용_home button_이 xml을 fragment_detail에서 recyclerview로 반복 -->
+
+    <!--    userid와 프로필 사진 출력 상단바-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/detailviewitem_profile_image"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="7.5dp"
+            tools:src="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/detailviewitem_profile_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1d1d1d"
+            tools:text="User Name" />
+    </LinearLayout>
+
+    <!-- Content ImageView -->
+    <ImageView
+        android:id="@+id/detailviewitem_imageview_content"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="fitCenter" />
+
+    <!-- favorite & comment -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp">
+<!--        좋아요 하트 버튼_누르면 검은색으로 변함-->
+        <ImageView
+            android:id="@+id/detailviewitem_favorite_imageview"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:srcCompat="@drawable/heart2" />
+<!--        댓글 버튼_누르면 댓글 페이지로 이동-->
+        <ImageView
+            android:id="@+id/detailviewitem_comment_imageview"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/discuss2" />
+        <!--        map으로 이동하는 버튼(이미지 바꾸기)-->
+        <ImageView
+            android:id="@+id/detailviewitem_map"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/map3"/>
+    </LinearLayout>
+
+<!--    좋아요 개수 출력-->
+    <TextView
+        android:id="@+id/detailviewitem_favoritecounter_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:textColor="#1d1d1d"
+        tools:text="좋아요 0개" />
+<!--사진 내용들 출력-->
+    <TextView
+        android:id="@+id/detailviewitem_explain_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp"
+        android:textColor="#1d1d1d"
+        android:layout_marginLeft="8dp"
+        tools:text="사진 내용" />
+<!--    userid가 root인 경우 username에 전시회 이름을 출력할 것이기 때문에 invisible로-->
+        <TextView
+        android:id="@+id/Exhibition_name_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible"
+        android:layout_marginLeft="8dp"
+        tools:text="전시회이름" />
+
+</LinearLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp">
+
+<!--        프로필 이미지...오류나는 부분-->
+        <!--follow버튼/ 본인 계정이면 로그아웃 버튼-->
+
+        <ImageView
+            android:id="@+id/account_iv_profile"
+            android:layout_width="144dp"
+            android:layout_height="123dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="124dp"
+
+            android:src="@drawable/profile" />
+<!--        android:contentDescription="@string/profile"-->
+        <TextView
+            android:id="@+id/UserId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/account_iv_profile"
+
+            android:layout_centerHorizontal="true"
+            android:textColor="#FF000000"
+            android:text="userid"
+            android:textSize="20dp" />
+
+
+        <Button
+            android:id="@+id/account_btn_follow_signout"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/UserId"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="46dp"
+            android:layout_marginBottom="1dp"
+            android:backgroundTint="#90FF4B4B"
+            android:text="@string/follow" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/account_btn_follow_signout"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_toRightOf="@id/account_iv_profile"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/post"
+                    android:visibility="invisible"/>
+<!--게시물 개수=>출력됨-->
+                <TextView
+                    android:id="@+id/account_tv_post_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/count_0"
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="invisible">
+<!--임의로 생성한 지도로 이동하는 버튼 위치를 바꿔도 좋음-->
+
+<!--follower수를 출력하는 부분 출력 확인하고 삭제할지도-->
+                <TextView
+                    android:id="@+id/account_tv_follower_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/count_0"
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/following"
+                    android:visibility="invisible"/>
+<!--follow하는 수를 출력 확인하고 삭제할지도 -->
+                <TextView
+                    android:id="@+id/account_tv_following_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/count_0"
+                    android:textStyle="bold"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/map_move"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/UserId"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="3dp"
+            android:src="@drawable/map8" />
+    </RelativeLayout>
+
+<!--    해당 user가 올린 이미지들을 격자무늬로 출력하기 위한 recyclerview-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/account_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
